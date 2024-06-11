@@ -33,6 +33,11 @@ export async function execute(interaction) {
     );
     const $ = cheerio.load(response.data);
     $('#mw-content-text');//.remove('style, div, script');
-    const output = pretty($('#mw-content-text p, #mw-content-text h1, #mw-content-text h2, #mw-content-text h3, #mw-content-text ul').text());
-    await interaction.reply(output);
-}//Character limit 2000, how to do queue bucket system in discord.
+    const Filtered = pretty($('#mw-content-text p, #mw-content-text h1, #mw-content-text h2, #mw-content-text h3, #mw-content-text ul').text());
+    let output;
+    if (Filtered.length > 2000)
+        output = Filtered.substring(0,1900);
+    else
+        output = Filtered;
+    await interaction.reply(output.substring(0,output.lastIndexOf('.') == -1 ? output.lastIndexOf('\n') : output.lastIndexOf('.')));
+}//Add next to forward Buffer [0->1999] then [2000->3999]
