@@ -1,14 +1,14 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { Client, Collection, Events, GatewayIntentBits } from 'discord.js';
+import {  Client, Collection, Events, GatewayIntentBits } from 'discord.js';
 import { config } from 'dotenv';
 
 config();
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] })
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.MessageContent] })
 client.commands = new Collection();
 
 const foldersPath = path.join(__dirname, 'commands');

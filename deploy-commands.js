@@ -29,8 +29,6 @@ const commandFiles = fs.readdirSync(foldersPath).filter(file => file.endsWith('.
 // Construct and prepare an instance of the REST module
 const rest = new REST().setToken(process.env.BOT_SECRET);
 
-console.log(commands);
-
 // and deploy your commands!
 (async () => {
 	try {
@@ -43,7 +41,6 @@ console.log(commands);
 		);
 
 		console.log(`Successfully reloaded ${data.length} application (/) commands.`);
-		console.log(`${data}`);
 	} catch (error) {
 		// And of course, make sure you catch and log any errors!
 		console.error(error);

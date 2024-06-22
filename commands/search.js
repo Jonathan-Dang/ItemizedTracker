@@ -3,15 +3,6 @@ import * as cheerio from 'cheerio';
 import axios from 'axios';
 import pretty from 'pretty';
 
-
-const response = await axios.get(
-    'https://en.wikipedia.org/wiki/', 
-    {headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-    }}
-);
-
 export const data = new SlashCommandBuilder()
     .setName('search')
     .setDescription('Queries Wikipedia regarding the searched object.')

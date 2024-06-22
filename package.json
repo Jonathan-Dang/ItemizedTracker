@@ -4,7 +4,7 @@
   "description": "Uses websocket to pull purchase-able items from internet and outputs it as a chat message to Discord.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node deploy-commands.js && node index.js"
   },
   "author": "Jonathan Dang",
   "license": "ISC",
